@@ -9,12 +9,19 @@
 
 char *_strstr(char *haystack, char *needle)
 {
+	for (; *haystack != '\0' ; haystack++)
+	{
 	const char *t = needle;
 	const char *h = haystack;
-	int i;
 
-	for (i = 0 ; h[i] < t[i] ; i++)
+	while (*h == *t && *t != '\0')
+	{
 		h++;
-	return (needle);
+		t++;
+	}
+
+	if (*t == '\0')
+		return (haystack);
+	}
 	return (NULL);
 }
